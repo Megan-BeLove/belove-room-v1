@@ -7,7 +7,9 @@
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene vr-mode-ui="enabled: false">
+      <a-entity cursor="rayOrigin: mouse"></a-entity>
+
       <!-- Sky + Light -->
       <a-sky color="#CBE5F9"></a-sky>
       <a-light type="ambient" color="#ffffff" intensity="1"></a-light>
@@ -16,14 +18,14 @@
       <a-plane color="#ffffff" height="30" width="30" rotation="-90 0 0"></a-plane>
 
       <!-- Soft Walls -->
-      <a-box position="-5 2 0" depth="0.1" height="4" width="10" color="#e6f0fa"></a-box> <!-- Left wall -->
-      <a-box position="5 2 0" depth="0.1" height="4" width="10" color="#e6f0fa"></a-box> <!-- Right wall -->
-      <a-box position="0 2 -5" depth="10" height="4" width="0.1" color="#e6f0fa"></a-box> <!-- Back wall -->
-      <a-box position="0 2 5" depth="10" height="4" width="0.1" color="#e6f0fa"></a-box> <!-- Front open -->
+      <a-box position="-5 2 0" depth="0.1" height="4" width="10" color="#e6f0fa"></a-box>
+      <a-box position="5 2 0" depth="0.1" height="4" width="10" color="#e6f0fa"></a-box>
+      <a-box position="0 2 -5" depth="10" height="4" width="0.1" color="#e6f0fa"></a-box>
+      <a-box position="0 2 5" depth="10" height="4" width="0.1" color="#e6f0fa"></a-box>
 
-      <!-- Description Text on Right Wall -->
+      <!-- Description Text -->
       <a-text 
-        value="This sacred space invites you \nto return to your breath. \nTo soften. To be. \nLet the sound of 'Your Natural Doorways' \nguide you home to yourself."
+        value="This sacred space invites you \nto return to your breath.\nTo soften. To be.\nLet the sound of 'Your Natural Doorways' \nguide you home to yourself."
         align="center"
         width="4.5"
         color="#444"
@@ -32,7 +34,7 @@
         line-height="40">
       </a-text>
 
-      <!-- Welcome Text -->
+      <!-- Welcome + Now Playing -->
       <a-text 
         value="Welcome to the Meditation Room" 
         align="center" 
@@ -40,19 +42,15 @@
         width="6"
         color="#333">
       </a-text>
-   
       <a-text 
-  value='Playing now is "Your Natural Doorways."' 
-  align="center"
-  width="6"
-  color="#333"
-  position="0 2.3 -4">
-</a-text>
+        value='Playing now is "Your Natural Doorways."' 
+        align="center"
+        position="0 2.3 -4" 
+        width="6"
+        color="#333">
+      </a-text>
 
-<a-scene vr-mode-ui="enabled: false">
-  <a-entity cursor="rayOrigin: mouse"></a-entity>
-      
-      <!-- Audio -->
+      <!-- Audio Setup -->
       <a-assets>
         <audio id="bg-audio" src="https://raw.githubusercontent.com/Megan-BeLove/belove-room-v1/main/Your-Natural-Doorways-Meditation.mp3" preload="auto"></audio>
       </a-assets>
@@ -60,29 +58,29 @@
 
       <!-- PLAY Button -->
       <a-box position="-1 1.5 -3" depth="0.2" height="0.5" width="1" color="#A8DADC"
-            class="clickable"
-            event-set__enter="_event: mouseenter; color: #457B9D"
-            event-set__leave="_event: mouseleave; color: #A8DADC"
-            onclick="document.querySelector('#meditation-sound').components.sound.playSound()">
+             class="clickable"
+             event-set__enter="_event: mouseenter; color: #457B9D"
+             event-set__leave="_event: mouseleave; color: #A8DADC"
+             onclick="document.querySelector('#meditation-sound').components.sound.playSound()">
       </a-box>
       <a-text value="Play" position="-1 1.7 -2.8" align="center" color="#000" width="4"></a-text>
 
       <!-- PAUSE Button -->
       <a-box position="0 1.5 -3" depth="0.2" height="0.5" width="1" color="#F4A261"
-            class="clickable"
-            event-set__enter="_event: mouseenter; color: #E76F51"
-            event-set__leave="_event: mouseleave; color: #F4A261"
-            onclick="document.querySelector('#meditation-sound').components.sound.pauseSound()">
+             class="clickable"
+             event-set__enter="_event: mouseenter; color: #E76F51"
+             event-set__leave="_event: mouseleave; color: #F4A261"
+             onclick="document.querySelector('#meditation-sound').components.sound.pauseSound()">
       </a-box>
       <a-text value="Pause" position="0 1.7 -2.8" align="center" color="#000" width="4"></a-text>
 
       <!-- RESTART Button -->
       <a-box position="1 1.5 -3" depth="0.2" height="0.5" width="1" color="#B5E48C"
-            class="clickable"
-            event-set__enter="_event: mouseenter; color: #99D98C"
-            event-set__leave="_event: mouseleave; color: #B5E48C"
-            onclick="document.querySelector('#meditation-sound').components.sound.stopSound(); 
-                     document.querySelector('#meditation-sound').components.sound.playSound();">
+             class="clickable"
+             event-set__enter="_event: mouseenter; color: #99D98C"
+             event-set__leave="_event: mouseleave; color: #B5E48C"
+             onclick="document.querySelector('#meditation-sound').components.sound.stopSound(); 
+                      document.querySelector('#meditation-sound').components.sound.playSound();">
       </a-box>
       <a-text value="Restart" position="1 1.7 -2.8" align="center" color="#000" width="4"></a-text>
 
