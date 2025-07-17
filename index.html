@@ -51,7 +51,36 @@ itation<!DOCTYPE html>
       <a-assets>
         <audio id="bg-audio" src="https://raw.githubusercontent.com/Megan-BeLove/belove-room-v1/main/Your-Natural-Doorways-Meditation.mp3" preload="auto"></audio>
       </a-assets>
-      <a-sound src="#bg-audio" autoplay="true" loop="true" position="0 2 0"></a-sound>
+      <a-sound src="#bg-audio" autoplay="false" loop="true" position="0 2 0"></a-sound>
+
+<!-- PLAY Button -->
+<a-box position="-1 1.5 -3" depth="0.2" height="0.5" width="1" color="#A8DADC"
+       class="clickable"
+       event-set__enter="_event: mouseenter; color: #457B9D"
+       event-set__leave="_event: mouseleave; color: #A8DADC"
+       onclick="document.querySelector('#meditation-sound').components.sound.playSound()">
+</a-box>
+<a-text value="Play" position="-1 1.7 -2.8" align="center" color="#000" width="4"></a-text>
+
+<!-- PAUSE Button -->
+<a-box position="0 1.5 -3" depth="0.2" height="0.5" width="1" color="#F4A261"
+       class="clickable"
+       event-set__enter="_event: mouseenter; color: #E76F51"
+       event-set__leave="_event: mouseleave; color: #F4A261"
+       onclick="document.querySelector('#meditation-sound').components.sound.pauseSound()">
+</a-box>
+<a-text value="Pause" position="0 1.7 -2.8" align="center" color="#000" width="4"></a-text>
+
+<!-- RESTART Button -->
+<a-box position="1 1.5 -3" depth="0.2" height="0.5" width="1" color="#B5E48C"
+       class="clickable"
+       event-set__enter="_event: mouseenter; color: #99D98C"
+       event-set__leave="_event: mouseleave; color: #B5E48C"
+       onclick="document.querySelector('#meditation-sound').components.sound.stopSound();
+                document.querySelector('#meditation-sound').components.sound.playSound();">
+</a-box>
+<a-text value="Restart" position="1 1.7 -2.8" align="center" color="#000" width="4"></a-text>
+      
     </a-scene>
   </body>
 </html>
