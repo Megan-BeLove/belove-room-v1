@@ -1,4 +1,4 @@
-itation<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -40,6 +40,7 @@ itation<!DOCTYPE html>
         width="6"
         color="#333">
       </a-text>
+      
   <a-text 
     value='Playing now is "Your Natural Doorways."' 
     align="center"
@@ -47,11 +48,13 @@ itation<!DOCTYPE html>
     color="#333"
     position="0 -0.5 0">
   </a-text>
+      
       <!-- Audio (placeholder) -->
       <a-assets>
         <audio id="bg-audio" src="https://raw.githubusercontent.com/Megan-BeLove/belove-room-v1/main/Your-Natural-Doorways-Meditation.mp3" preload="auto"></audio>
       </a-assets>
-      <a-sound src="#bg-audio" autoplay="false" loop="true" position="0 2 0"></a-sound>
+      <a-entity id="meditation-sound" sound="src: #bg-audio; autoplay: false; loop: true" position="0 2 0"></a-entity>
+
 
 
 <a-text value="Restart" position="1 1.7 -2.8" align="center" color="#000" width="4"></a-text>
