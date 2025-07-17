@@ -57,11 +57,7 @@
 
 
 
-<a-text value="Restart" position="1 1.7 -2.8" align="center" color="#000" width="4"></a-text>
-      
-    </a-scene>
-
-    <!-- PLAY Button -->
+ <!-- PLAY Button -->
 <a-box position="-1 1.5 -3" depth="0.2" height="0.5" width="1" color="#A8DADC"
        class="clickable"
        event-set__enter="_event: mouseenter; color: #457B9D"
@@ -86,6 +82,10 @@
        event-set__leave="_event: mouseleave; color: #B5E48C"
        onclick="document.querySelector('#meditation-sound').components.sound.stopSound();
                 document.querySelector('#meditation-sound').components.sound.playSound();">
+      
+    </a-scene>
+
+   
 </a-box>
   </body>
 </html>
